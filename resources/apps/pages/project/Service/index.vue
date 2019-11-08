@@ -3,7 +3,7 @@
         <template #toolbar-default>
             <template v-if="auth.authent === 'operator'">
                 <v-btn-tips @click="openDraft" label="KIRIM" icon="send" :show="!disabled.link" v-if="record.status === 'drafted'" />
-                <v-btn-tips @click="openPrint" label="CETAK" icon="print" :show="!disabled.link" v-if="record.status === 'approved'" />
+                <v-btn-tips @click="openPrint" label="CETAK" icon="print" :show="!disabled.link" v-if="record.status === 'approved' || record.status === 'printed'" />
             </template>
 
             <template v-if="auth.authent === 'kabiro'">

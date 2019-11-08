@@ -341,7 +341,15 @@ class Service extends Model
         DB::beginTransaction();
 
         try {
-            $model->status = 'dispositioned';
+            // root biro
+            $rootAgency = Agency::where('root', true)->first();
+
+            if ($request->user()->userable->id === $rootAgency->id) {
+                $model->status = 'submissioned';
+            } else {
+                $model->status = 'dispositioned';
+            }
+
             $model->save();
 
             DB::commit();
