@@ -75,12 +75,20 @@
                 <v-col class="pt-0" cols="12">
                     <v-combobox
                         label="Item Service"
-                        append-outer-icon="add"
                         :items="items"
                         v-model="currentItem"
+                        append-outer-icon="add"
                         @click:append-outer="addItem"
                         hide-details
                     ></v-combobox>
+                </v-col>
+
+                <v-col cols="12">
+                    <v-textarea
+                        label="Keterangan"
+                        :rows="1"
+                        v-model="currentNotes"
+                    ></v-textarea>
                 </v-col>
 
                 <v-col cols="12">
@@ -89,6 +97,7 @@
                             <thead>
                                 <tr>
                                     <th>Nama Item</th>
+                                    <th>Keterangan</th>
                                     <th class="short-field"></th>
                                 </tr>
                             </thead>
@@ -97,6 +106,7 @@
                                 <template v-if="hasDetails">
                                     <tr v-for="(item, index) in record.details" :key="index">
                                         <td>{{ item.text }}</td>
+                                        <td>{{ item.notes }}</td>
                                         <td class="text-end">
                                             <v-icon @click="removeItem(index)">remove_circle_outline</v-icon>
                                         </td>
@@ -164,6 +174,7 @@
                             <thead>
                                 <tr>
                                     <th>Nama Item</th>
+                                    <th>Keterangan</th>
                                     <th class="short-field"></th>
                                 </tr>
                             </thead>
@@ -172,6 +183,7 @@
                                 <template v-if="hasDetails">
                                     <tr v-for="(item, index) in record.details" :key="index">
                                         <td>{{ item.text }}</td>
+                                        <td>{{ item.notes }}</td>
                                         <td class="text-end"></td>
                                     </tr>
                                 </template>
@@ -246,8 +258,8 @@
                             <thead>
                                 <tr>
                                     <th>Nama Item</th>
-                                    <th class="count-field">Terpakai</th>
-                                    <th class="count-field">Sisa</th>
+                                    <th>Keterangan</th>
+                                    <th class="count-field">Kendali</th>
                                     <th class="icon-field"></th>
                                     <th class="icon-field"></th>
                                 </tr>
@@ -257,8 +269,8 @@
                                 <template v-if="hasDetails">
                                     <tr v-for="(item, index) in record.details" :key="index">
                                         <td>{{ item.text }}</td>
-                                        <td>{{ item.used }}</td>
-                                        <td>{{ item.blnc }}</td>
+                                        <td>{{ item.notes }}</td>
+                                        <td>{{ item.used + '/' + item.blnc }}</td>
                                         <td><v-icon v-if="item.exmn">{{ item.aprv ? 'check' : 'close' }}</v-icon></td>
                                         <td class="text-end">
                                             <v-icon @click="removeItem(index)">remove_circle_outline</v-icon>
@@ -335,8 +347,8 @@
                             <thead>
                                 <tr>
                                     <th>Nama Item</th>
-                                    <th class="count-field">Terpakai</th>
-                                    <th class="count-field">Sisa</th>
+                                    <th>Keterangan</th>
+                                    <th class="count-field">Kendali</th>
                                     <th class="icon-field"></th>
                                 </tr>
                             </thead>
@@ -345,8 +357,8 @@
                                 <template v-if="hasDetails">
                                     <tr v-for="(item, index) in record.details" :key="index">
                                         <td>{{ item.text }}</td>
-                                        <td>{{ item.used }}</td>
-                                        <td>{{ item.blnc }}</td>
+                                        <td>{{ item.notes }}</td>
+                                        <td>{{ item.used + '/' + item.blnc }}</td>
                                         <td><v-icon>{{ item.aprv ? 'check' : 'close' }}</v-icon></td>
                                     </tr>
                                 </template>
@@ -425,7 +437,7 @@
                             <tbody>
                                 <template v-if="hasDetails">
                                     <tr v-for="(item, index) in record.details" :key="index">
-                                        <td class="pl-0">{{ item.text }}</td>
+                                        <td class="pl-0">{{ item.text + ' (' + item.notes + ')' }}</td>
                                     </tr>
                                 </template>
 
@@ -695,6 +707,8 @@ export default {
         temps: [],
 
         currentItem: null,
+        currentNotes: null,
+
         itemInvoice: {
             item: null,
             qty: 0,
@@ -753,12 +767,22 @@ export default {
                     let idx = this.record.details.findIndex(obj => obj.value === this.currentItem.value);
 
                     if (idx === -1) {
-                        this.record.details.push(this.currentItem);
+                        this.record.details.push({
+                            blnc: this.currentItem.blnc,
+                            kind: this.currentItem.kind,
+                            text: this.currentItem.text,
+                            unit: this.currentItem.unit,
+                            used: this.currentItem.used,
+                            value: this.currentItem.value,
+                            notes: this.currentNotes
+                        });
                     }
                     
                     this.currentItem = null;
+                    this.currentNotes = null;
                 } else {
                     this.currentItem = null;
+                    this.currentNotes = null;
                 }    
             } catch (error) {
                 this.$store.dispatch('errors', error);   

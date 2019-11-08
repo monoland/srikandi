@@ -221,7 +221,8 @@ class Service extends Model
                         'name' => $item['text'],
                         'unit' => $item['unit'],
                         'used' => $item['used'],
-                        'blnc' => $item['blnc']
+                        'blnc' => $item['blnc'],
+                        'notes' => $item['notes']
                     ];
                 }
 

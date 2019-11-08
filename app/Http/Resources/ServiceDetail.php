@@ -24,6 +24,7 @@ class ServiceDetail extends JsonResource
                 'blnc' => $this->pivot->blnc,
                 'aprv' => $this->pivot->aprv,
                 'exmn' => $this->pivot->exmn,
+                'notes' => $this->pivot->notes,
             ])
         ];
     }
