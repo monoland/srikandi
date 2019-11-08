@@ -437,7 +437,7 @@
                             <tbody>
                                 <template v-if="hasDetails">
                                     <tr v-for="(item, index) in record.details" :key="index">
-                                        <td class="pl-0">{{ item.text + item.notes ? ' (' + item.notes + ')' : '' }}</td>
+                                        <td class="pl-0">{{ item.text }} {{ item.notes ? '(' + item.notes + ')' : ''  }}</td>
                                     </tr>
                                 </template>
 
