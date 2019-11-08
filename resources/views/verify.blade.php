@@ -37,13 +37,13 @@
                                     <tr>
                                         <td class="dt-label">Perusahaan</td>
                                         <td class="sparator">:</td>
-                                        <td>{{ $data->garage->text }}</td>
+                                        <td>{{ $data->garage->name }}</td>
                                     </tr>
 
                                     <tr>
                                         <td class="dt-label">Alamat</td>
                                         <td class="sparator">:</td>
-                                        <td>{{ $data->garage->alamat }}</td>
+                                        <td>{{ $data->garage->address }}</td>
                                     </tr>
 
                                     <tr>
@@ -59,25 +59,25 @@
                                     <tr>
                                         <td class="dt-label">Merek</td>
                                         <td class="sparator">:</td>
-                                        <td>{{ $data->vehicle->brand }}</td>
+                                        <td>{{ $data->vehicle->brand->name }}</td>
                                     </tr>
 
                                     <tr>
                                         <td class="dt-label">Type</td>
                                         <td class="sparator">:</td>
-                                        <td>{{ $data->vehicle->type }}</td>
+                                        <td>{{ $data->vehicle->type->name }}</td>
                                     </tr>
 
                                     <tr>
                                         <td class="dt-label">No Polisi</td>
                                         <td class="sparator">:</td>
-                                        <td>{{ $data->vehicle->police_id }}</td>
+                                        <td>{{ $data->police->id }}</td>
                                     </tr>
 
                                     <tr>
                                         <td class="dt-label">Atas Nama</td>
                                         <td class="sparator">:</td>
-                                        <td>{{ $data->vehicle->name }}</td>
+                                        <td>{{ $data->police->name }}</td>
                                     </tr>
                                 </tbody>
                             </table>
