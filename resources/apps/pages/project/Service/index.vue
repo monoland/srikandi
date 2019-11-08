@@ -962,7 +962,7 @@ export default {
                     win.focus();
                     win.print();
                     win.close();
-                }, 1000);
+                }, 1500);
             } catch (error) {
                 this.$store.dispatch('errors', error);
             } finally {

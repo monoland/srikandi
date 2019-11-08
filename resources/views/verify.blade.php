@@ -16,7 +16,15 @@
 </style>
 
 <body>
-    <div id="monoland"></div>
+    <div data-app="true" class="v-application v-application--is-ltr theme--light">
+        <div class="v-application--wrap">
+            <main class="v-content">
+                <div class="v-content__wrap">
+                    {{ $data->id }}
+                </div>
+            </main>
+        </div>
+    </div>
 
     <script>
         window.errors = null;
@@ -41,8 +49,8 @@
         </div>
     </noscript>
 
-    <script src="/scripts/manifest.js"></script>
-    <script src="/scripts/vendor.js"></script>
-    <script src="/scripts/monoland.js"></script>
+    <!-- <script src="/scripts/manifest.js"></script> -->
+    <!-- <script src="/scripts/vendor.js"></script> -->
+    <!-- <script src="/scripts/monoland.js"></script> -->
 </body>
 </html>
