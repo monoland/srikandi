@@ -6,19 +6,28 @@
                 <v-btn-tips @click="openPrint" label="CETAK" icon="print" :show="!disabled.link" v-if="record.status === 'approved' || record.status === 'printed'" />
             </template>
 
-            <template v-if="auth.authent === 'kabiro'">
+            <template v-else-if="auth.authent === 'kabiro'">
                 <v-btn-tips @click="openDisposition" label="DISPOSISI" icon="assignment_turned_in" :show="!disabled.link" />
             </template>
 
-            <template v-if="auth.authent === 'pptk'">
+            <template v-else-if="auth.authent === 'pptk'">
                 <v-btn-tips @click="openSubmission" label="EXAMINE" icon="assignment" :show="!disabled.link" />
             </template>
 
-            <template v-if="auth.authent === 'kpa'">
+            <template v-else-if="auth.authent === 'kpa'">
                 <v-btn-tips @click="openExamine" label="APPROVAL" icon="check_circle" :show="!disabled.link" />
             </template>
 
-            <template v-if="auth.authent === 'tata-usaha'">
+            <template v-else-if="auth.authent === 'tata-usaha'">
+                <v-btn-tips @click="openInvoice" label="TAGIHAN" icon="local_atm" :show="!disabled.link" />
+            </template>
+
+            <template v-else>
+                <v-btn-tips @click="openDraft" label="KIRIM" icon="send" :show="!disabled.link" />
+                <v-btn-tips @click="openDisposition" label="DISPOSISI" icon="assignment_turned_in" :show="!disabled.link" />
+                <v-btn-tips @click="openSubmission" label="EXAMINE" icon="assignment" :show="!disabled.link" />
+                <v-btn-tips @click="openExamine" label="APPROVAL" icon="check_circle" :show="!disabled.link" />
+                <v-btn-tips @click="openPrint" label="CETAK" icon="print" :show="!disabled.link" />
                 <v-btn-tips @click="openInvoice" label="TAGIHAN" icon="local_atm" :show="!disabled.link" />
             </template>
         </template>
