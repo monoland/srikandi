@@ -27,8 +27,6 @@ class CreateServicesTable extends Migration
             ])->default('drafted')->index();
             $table->unsignedBigInteger('user_id')->index();
             $table->timestamps();
-
-            $table->unique(['vehicle_id', 'periode']);
         });
 
         Schema::create('item_service', function (Blueprint $table) {
