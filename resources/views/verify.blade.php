@@ -20,7 +20,70 @@
         <div class="v-application--wrap">
             <main class="v-content">
                 <div class="v-content__wrap">
-                    {{ $data->id }}
+                    <div class="v-data-table theme--light">
+                        <div class="v-data-table__wrapper">
+                            <table class="verification">
+                                <tbody>
+                                    <tr>
+                                        <td class="dt-label">Nomor Surat</td>
+                                        <td class="sparator">:</td>
+                                        <td>{{ '024/' . $data->id . '.BR-UM.SETDA/' . $data->year }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td colspan="3">INFO BENGKEL</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="dt-label">Perusahaan</td>
+                                        <td class="sparator">:</td>
+                                        <td>{{ $data->garage->text }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="dt-label">Alamat</td>
+                                        <td class="sparator">:</td>
+                                        <td>{{ $data->garage->alamat }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="dt-label">Telpon</td>
+                                        <td class="sparator">:</td>
+                                        <td>{{ $data->garage->phone }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td colspan="3">INFO KENDARAAN</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="dt-label">Merek</td>
+                                        <td class="sparator">:</td>
+                                        <td>{{ $data->vehicle->brand }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="dt-label">Type</td>
+                                        <td class="sparator">:</td>
+                                        <td>{{ $data->vehicle->type }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="dt-label">No Polisi</td>
+                                        <td class="sparator">:</td>
+                                        <td>{{ $data->vehicle->police_id }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="dt-label">Atas Nama</td>
+                                        <td class="sparator">:</td>
+                                        <td>{{ $data->vehicle->name }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- {{ $data->id }} -->
                 </div>
             </main>
         </div>
