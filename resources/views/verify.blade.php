@@ -81,6 +81,21 @@
                                     </tr>
                                 </tbody>
                             </table>
+
+                            <table class="verification">
+                                <tbody>
+                                    <tr>
+                                        <td colspan="2">ITEM SERVICE</td>
+                                    </tr>
+                                    
+                                    @foreach ($data->details as $item)
+                                    <tr>
+                                        <td>{{ $item->pivot->name }}</td>
+                                        <td>{{ $item->pivot->notes }}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     <!-- {{ $data->id }} -->
