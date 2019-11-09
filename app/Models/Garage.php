@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Support\Facades\DB;
 use App\Http\Resources\GarageResource;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Garage extends Model
 {
@@ -117,7 +118,10 @@ class Garage extends Model
 
         try {
             $model = new static;
-            // ...
+            $model->name = $request->name;
+            $model->slug = Str::slug($request->name);
+            $model->address = $request->address;
+            $model->phone = $request->phone;
             $model->save();
 
             DB::commit();
@@ -138,7 +142,10 @@ class Garage extends Model
         DB::beginTransaction();
 
         try {
-            // ...
+            $model->name = $request->name;
+            $model->slug = Str::slug($request->name);
+            $model->address = $request->address;
+            $model->phone = $request->phone;
             $model->save();
 
             DB::commit();
