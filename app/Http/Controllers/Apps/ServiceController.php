@@ -208,13 +208,5 @@ class ServiceController extends Controller
         $data = new ServiceResource($service);
 
         return view('verify', compact('data'));
-        // return response()->json([
-        //     'nomor' => '024/' . $service->id . '.BR-UM.SETDA/' . $service->year,
-        //     'no_polisi' => $service->police_id,
-        //     'pemegang' => optional($service->police)->name,
-        //     'nama_dinas' => optional($service->agency)->name,
-        //     'nama_bengkel' => optional($service->garage)->name,
-        //     'periode' => $service->periode,
-        // ], 200);
     }
 }
