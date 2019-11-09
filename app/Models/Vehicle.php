@@ -190,6 +190,7 @@ class Vehicle extends Model
             $model->refs_numb = $request->refs_numb;
             $model->agency_id = $request->agency_id;
             $model->condition = $request->condition;
+            $model->kind = $parent->kind;
 
             $parent->vehicles()->save($model);
 
