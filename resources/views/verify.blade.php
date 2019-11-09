@@ -88,7 +88,7 @@
                                         <td colspan="2">ITEM SERVICE</td>
                                     </tr>
                                     
-                                    @foreach ($data->details as $item)
+                                    @foreach ($data->items as $item)
                                     <tr>
                                         <td>{{ $item->pivot->name }}</td>
                                         <td>{{ $item->pivot->notes }}</td>
