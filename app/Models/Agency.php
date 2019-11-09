@@ -68,7 +68,7 @@ class Agency extends Model
      */
     public function vehicles()
     {
-        return $this->hasMany(vehicle::class);
+        return $this->hasMany(Vehicle::class);
     }
 
     /**
