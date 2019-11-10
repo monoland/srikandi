@@ -133,6 +133,35 @@ class Service extends Model
      * Undocumented function
      *
      * @param [type] $query
+     * @return void
+     */
+    public function scopeFilterKind($query, $kind)
+    {
+        return $query
+            ->join('vehicles', 'services.vehicle_id', '=', 'vehicles.id')
+            ->where('vehicles.kind', $kind);
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param [type] $query
+     * @param [type] $user
+     * @return void
+     */
+    public function scopeFilterUser($query, $user)
+    {
+        if ($user) {
+            return $query->where('services.agency_id', $user->userable->id);
+        }
+        
+        return $query;
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param [type] $query
      * @param [type] $request
      * @return void
      */

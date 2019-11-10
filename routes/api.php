@@ -45,4 +45,7 @@ Route::middleware(['api', 'auth:api'])->group(function () {
     Route::match(['PUT', 'PATCH'], 'service/{service}/approve', 'Apps\ServiceController@approved')->name('service.approve');
     Route::resource('service', 'Apps\ServiceController')->only(['index', 'store', 'update', 'destroy']);
     Route::resource('service.invoice', 'Apps\InvoiceController')->only(['index', 'store', 'update', 'destroy']);
+    // dashboard
+    Route::get('dashboard/type', 'Apps\DashboardController@vehicleType')->name('dashboard.type');
+    Route::get('dashboard/service', 'Apps\DashboardController@vehicleService')->name('dashboard.service');
 });

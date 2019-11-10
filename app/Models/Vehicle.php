@@ -131,6 +131,16 @@ class Vehicle extends Model
     }
 
     /**
+     * Undocumented function
+     *
+     * @return void
+     */
+    public function services()
+    {
+        return $this->hasMany(Service::class);
+    }
+
+    /**
      * Scope for combo
      */
     public function scopeFetchCombo($query)
@@ -142,6 +152,33 @@ class Vehicle extends Model
             ->select(
                 DB::raw("CONCAT(police.id, ' - ', agencies.name, ' a/n ', police.name) AS text"), 'vehicles.agency_id', 'police.id as police_id', 'types.kind', 'vehicles.id AS value'
             )->get();
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param [type] $query
+     * @return void
+     */
+    public function scopeFilterKind($query, $kind)
+    {
+        return $query->where('kind', $kind);
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param [type] $query
+     * @param [type] $user
+     * @return void
+     */
+    public function scopeFilterUser($query, $user)
+    {
+        if ($user) {
+            return $query->where('agency_id', $user->userable->id);
+        }
+        
+        return $query;
     }
 
     /**
