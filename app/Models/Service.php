@@ -152,6 +152,10 @@ class Service extends Model
     public function scopeFilterUser($query, $user)
     {
         if (optional($user->userable)->id) {
+            if ($user->isKPA() || $user->isPPTK()) {
+                return $query;        
+            }
+
             return $query->where('services.agency_id', $user->userable->id);
         }
         
