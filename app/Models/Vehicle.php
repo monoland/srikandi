@@ -174,7 +174,7 @@ class Vehicle extends Model
      */
     public function scopeFilterUser($query, $user)
     {
-        if ($user) {
+        if (optional($user->userable)->id) {
             return $query->where('agency_id', $user->userable->id);
         }
         

@@ -151,7 +151,7 @@ class Service extends Model
      */
     public function scopeFilterUser($query, $user)
     {
-        if ($user) {
+        if (optional($user->userable)->id) {
             return $query->where('services.agency_id', $user->userable->id);
         }
         
