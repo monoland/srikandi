@@ -27,7 +27,7 @@
                     ></v-text-field>
                 </v-col>
 
-                <v-col cols="3">
+                <v-col cols="1">
                     <v-text-field
                         label="Unit"
                         :color="$root.theme"
@@ -36,6 +36,15 @@
                 </v-col>
 
                 <v-col cols="3">
+                    <v-select
+                        label="Jenis"
+                        :items="kinds"
+                        :color="$root.theme"
+                        v-model="record.kind"
+                    ></v-select>
+                </v-col>
+
+                <v-col cols="2">
                     <v-text-field
                         label="Batas"
                         :color="$root.theme"
@@ -60,7 +69,10 @@ export default {
     ],
 
     data:() => ({
-        // 
+        kinds: [
+            { text: 'Motor', value: 'motor' },
+            { text: 'Mobil', value: 'mobil' }
+        ]
     }),
 
     created() {
@@ -82,7 +94,8 @@ export default {
             id: null,
             name: null,
             unit: null,
-            maxi: null
+            maxi: null,
+            kind: null
         });
     }
 };

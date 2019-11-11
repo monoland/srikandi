@@ -132,6 +132,7 @@ class Item extends Model
             $model->slug = Str::slug($request->name);
             $model->unit = $request->unit;
             $model->maxi = $request->maxi;
+            $model->kind = $request->kind;
             
             $parent->items()->save($model);
 
@@ -157,6 +158,7 @@ class Item extends Model
             $model->slug = Str::slug($request->name);
             $model->unit = $request->unit;
             $model->maxi = $request->maxi;
+            $model->kind = $request->kind;
             $model->save();
 
             DB::commit();
