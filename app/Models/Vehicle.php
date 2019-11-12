@@ -150,7 +150,7 @@ class Vehicle extends Model
             ->join('police', 'police.vehicle_id', '=', 'vehicles.id')
             ->join('types', 'types.id', '=', 'vehicles.type_id')
             ->select(
-                DB::raw("CONCAT(police.id, ' - ', agencies.name, ' a/n ', police.name) AS text"), 'vehicles.agency_id', 'police.id as police_id', 'types.kind', 'vehicles.id AS value'
+                DB::raw("CONCAT(vehicles.kind, ' | ', police.id, ' - ', agencies.name, ' a/n ', police.name) AS text"), 'vehicles.agency_id', 'police.id as police_id', 'types.kind', 'vehicles.id AS value'
             )->get();
     }
 

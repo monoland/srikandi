@@ -19,7 +19,7 @@ class ServiceResource extends JsonResource
             'vehicle' => [
                 'agency_id' => optional($this->agency)->id,
                 'police_id' => optional($this->police)->id,
-                'text' => optional($this->police)->id . ' - ' . optional($this->agency)->name . ' a/n ' . optional($this->police)->name,
+                'text' => optional($this->vehicle)->kind . ' | ' . optional($this->police)->id . ' - ' . optional($this->agency)->name . ' a/n ' . optional($this->police)->name,
                 'value' => optional($this->vehicle)->id,
                 'name' => optional($this->police)->name,
                 'brand' => optional(optional($this->vehicle)->brand)->name,
@@ -33,7 +33,7 @@ class ServiceResource extends JsonResource
                     'phone' => optional($this->garage)->phone,
                 ]
             ]),
-            'police_id' => optional($this->police)->id . ' a/n ' . optional($this->police)->name,
+            'police_id' => optional($this->vehicle)->kind . ' | ' . optional($this->police)->id . ' a/n ' . optional($this->police)->name,
             'periode' => $this->periode,
             'year' => $this->year,
             'notes' => $this->notes,
