@@ -14,6 +14,7 @@ class SyncControlTable extends Seeder
      */
     public function run()
     {
+        // vehicles
         $vehicles = Vehicle::withCount('controls')->get();
 
         foreach ($vehicles as $vehicle) {
@@ -37,6 +38,33 @@ class SyncControlTable extends Seeder
 
             if (count($controls) > 0) {
                 $vehicle->controls()->saveMany($controls);
+            }
+        }
+
+        // items
+        $items = Item::withCount('controls')->get();
+
+        foreach ($items as $item) {
+            if ($item->controls_count > 0) {
+                continue;
+            }
+
+            $vehicles = Vehicle::where('kind', $item->kind)->get();
+            $controls = [];
+
+            foreach ($vehicles as $vehicle) {
+                array_push(
+                    $controls, new Control([
+                        'vehicle_id' => $vehicle->id, 
+                        'year' => date('Y'),
+                        'maxi' => $item->maxi,
+                        'blnc' => $item->maxi
+                    ])
+                );
+            }
+
+            if (count($controls) > 0) {
+                $item->controls()->saveMany($controls);
             }
         }
     }
