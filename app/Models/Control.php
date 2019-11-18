@@ -52,7 +52,9 @@ class Control extends Model
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'vehicle_id', 'item_id'
+    ];
 
 
     // relations
