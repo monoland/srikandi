@@ -136,6 +136,24 @@ class Item extends Model
             
             $parent->items()->save($model);
 
+            $vehicles = Vehicle::where('kind', $model->kind)->get();
+            $controls = [];
+
+            foreach ($vehicles as $vehicle) {
+                array_push(
+                    $controls, new Control([
+                        'vehicle_id' => $vehicle->id, 
+                        'year' => date('Y'),
+                        'maxi' => $model->maxi,
+                        'blnc' => $model->maxi
+                    ])
+                );
+            }
+
+            if (count($controls) > 0) {
+                $model->controls()->saveMany($controls);
+            }
+
             DB::commit();
 
             return new ItemResource($model);

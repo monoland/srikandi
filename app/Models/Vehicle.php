@@ -259,6 +259,25 @@ class Vehicle extends Model
             $balance->blnc = $budget->maxi;
 
             $model->balances()->save($balance);
+            
+            // set control
+            $items = Item::where('kind', $model->kind)->get();
+            $controls = [];
+
+            foreach ($items as $item) {
+                array_push(
+                    $controls, new Control([
+                        'item_id' => $item->id, 
+                        'year' => date('Y'),
+                        'maxi' => $item->maxi,
+                        'blnc' => $item->maxi
+                    ])
+                );
+            }
+
+            if (count($controls) > 0) {
+                $model->controls()->saveMany($controls);
+            }
 
             DB::commit();
 
