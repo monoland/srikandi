@@ -15,7 +15,7 @@ class ResetSubmissionStatus extends Seeder
         $services = Service::where('status', 'submissioned')->get();
 
         foreach ($services as $service) {
-            $service->items()->newPivotStatement()->update(['exmn' => false]);
+            $service->items()->newPivotStatement()->where('service_id', $service->id)->update(['exmn' => false]);
         }
     }
 }

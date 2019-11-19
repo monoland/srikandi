@@ -456,7 +456,7 @@ class Service extends Model
                 }
 
                 $model->items()->syncWithoutDetaching($items);
-                $model->items()->newPivotStatement()->update(['exmn' => true]);
+                $model->items()->newPivotStatement()->where('service_id', $model->id)->update(['exmn' => true]);
             }
 
             DB::commit();
