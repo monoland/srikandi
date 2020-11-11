@@ -456,14 +456,14 @@
                 </v-col>
                 <v-col cols="6" align="center">
                     <div class="body-1">Serang, {{ record.created_at }}</div>
-                    <div class="body-1 text-uppercase font-weight-bold">kepala biro umum</div>
+                    <div class="body-1 font-weight-bold">Plt. <span class="text-uppercase">kepala biro umum</span></div>
                     <div class="body-1 text-uppercase font-weight-bold">setda provinsi banten</div>
                     <p class="signature mb-0">
-                        <img src="/images/signature-holder.png" alt="TTD" style="height: 136px;">
+                        <img src="/images/karo-signature.png" alt="TTD" style="height: 136px;">
                     </p>
-                    <div class="body-1 font-weight-bold" style="text-decoration: underline;">Drs. H. AHMAD SYAUKANI, M.Si</div>
-                    <div class="body-1">Pembina Utama Muda</div>
-                    <div class="body-1">NIP. 19740422 199303 1 001</div>
+                    <div class="body-1 font-weight-bold" style="text-decoration: underline;">BENI ISMAIL, S.STP., M.Si</div>
+                    <div class="body-1">Pembina Utama Muda / IV c</div>
+                    <div class="body-1">NIP. 19760905 199602 1 002</div>
                 </v-col>
             </v-row>
         </v-page-dialog>

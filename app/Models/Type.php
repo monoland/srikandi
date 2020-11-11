@@ -87,7 +87,8 @@ class Type extends Model
     public function scopeFetchCombo($query)
     {
         return $query->select(
-            'name AS text', 'id AS value'
+            'name AS text',
+            'id AS value'
         )->get();
     }
 
@@ -130,6 +131,7 @@ class Type extends Model
             $model = new static;
             $model->name = $request->name;
             $model->slug = Str::slug($request->name);
+            $model->kind = $request->kind;
             $parent->types()->save($model);
 
             DB::commit();
@@ -152,6 +154,7 @@ class Type extends Model
         try {
             $model->name = $request->name;
             $model->slug = Str::slug($request->name);
+            $model->kind = $request->kind;
             $model->save();
 
             DB::commit();

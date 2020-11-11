@@ -27,9 +27,19 @@
                 <v-col cols="12">
                     <v-text-field
                         label="Nama"
+                        hide-details
                         :color="$root.theme"
                         v-model="record.name"
                     ></v-text-field>
+                </v-col>
+
+                <v-col cols="12">
+                    <v-select
+                        label="Jenis"
+                        :items="kinds"
+                        :color="$root.theme"
+                        v-model="record.kind"
+                    ></v-select>
                 </v-col>
             </v-row>
         </v-page-form>
@@ -49,7 +59,7 @@ export default {
     ],
 
     data:() => ({
-        // 
+        kinds: ['motor', 'mobil']
     }),
 
     created() {
@@ -70,6 +80,7 @@ export default {
         this.setRecord({
             id: null,
             name: null,
+            kind: null
         });
     },
 
