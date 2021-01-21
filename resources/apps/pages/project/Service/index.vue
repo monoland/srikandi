@@ -459,7 +459,7 @@
                     <div class="body-1 font-weight-bold"><span class="text-uppercase">kepala biro umum</span></div>
                     <div class="body-1 text-uppercase font-weight-bold">setda provinsi banten</div>
                     <p class="signature mb-0">
-                        <img src="/images/ttd-karo-umum.png" alt="TTD" style="height: 136px;">
+                        <img src="/images/ttd-karo-umum.png" alt="TTD" style="height: 85px; margin-right: 48px;">
                     </p>
                     <div class="body-1 font-weight-bold" style="text-decoration: underline;">Dr. Nana Supiana</div>
                     <div class="body-1">Pembina Tingkat I / IV b</div>
