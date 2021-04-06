@@ -197,7 +197,7 @@ class Service extends Model
 
             case 'pptk':
                 $mixquery
-                    ->whereIn('status', ['submissioned', 'printed']);
+                    ->whereIn('status', ['submissioned', 'approved']);
                 break;
 
             case 'kpa':
