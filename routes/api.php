@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 Route::middleware('throttle:200,1')->group(function () {
     Route::get('company', 'Mono\WebController@company');
 });

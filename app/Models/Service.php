@@ -125,7 +125,8 @@ class Service extends Model
     public function scopeFetchCombo($query)
     {
         return $query->select(
-            'name AS text', 'id AS value'
+            'name AS text',
+            'id AS value'
         )->get();
     }
 
@@ -153,7 +154,7 @@ class Service extends Model
     {
         if (optional($user->userable)->id) {
             if ($user->isKPA() || $user->isPPTK()) {
-                return $query;        
+                return $query;
             }
 
             return $query->where('services.agency_id', $user->userable->id);
@@ -196,7 +197,7 @@ class Service extends Model
 
             case 'pptk':
                 $mixquery
-                    ->whereIn('status', ['submissioned']);
+                    ->whereIn('status', ['submissioned', 'printed']);
                 break;
 
             case 'kpa':
