@@ -180,7 +180,7 @@ class ServicePolicy
      */
     public function approved(User $user, Service $service)
     {
-        return $user->isOperator() && ($service->status === 'approved' || $service->status === 'printed');
+        return $user->isPPTK() && ($service->status === 'approved' || $service->status === 'printed');
     }
 
     /**
