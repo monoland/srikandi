@@ -198,6 +198,7 @@ class Service extends Model
             case 'pptk':
                 $mixquery
                     ->whereIn('status', ['submissioned', 'approved']);
+                    
                 break;
 
             case 'kpa':
@@ -214,6 +215,8 @@ class Service extends Model
         if ($search) {
             $mixquery = $mixquery->whereRaw("LOWER(name) LIKE '%{$search}%'");
         }
+
+        $mixquery = $mixquery->where('year', now()->year);
 
         // if ($filtby) {
         //     $mixquery = $mixquery->whereRaw("{$filton} = '{$filtby}'");
